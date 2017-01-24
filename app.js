@@ -23,10 +23,8 @@ var fs = require('file-system');
 fs.watch('tmp', function (event, filename) {
     if (event == "rename") {
         if (fs.existsSync("tmp/" + filename)) {
-            console.log('filename added: ' + filename);
             uploadFileToS3(filename);
         } else {
-            console.log('filename deleted' + filename);
             deleteFileToS3(filename);
         }
     }
@@ -46,7 +44,7 @@ app.get('/list', function(req, res){
     };
     s3.listObjects(params, 	function(err, data){
         for(var i = 0; i < data.Contents.length; i++) {
-            data.Contents[i].Url = 'https://s3-us-west-1.amazonaws.com/' + data.Name + '/' + data.Contents[i].Key;
+            data.Contents[i].Url = 'https://s3.amazonaws.com/' + data.Name + '/' + data.Contents[i].Key;
         }
         res.send(data.Contents);
     })
