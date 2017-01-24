@@ -1,0 +1,16 @@
+{
+  "name": "l02-screenshot-service",
+  "version": "1.0.0",
+  "description": "Email Tracking Service ---------------------- A simple demonstration of the email pixel tracking using Node.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.7.27",
+    "express": "latest",
+    "file-system": "^2.2.2"
+  }
+}
